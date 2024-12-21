@@ -1,0 +1,332 @@
+/* ==== General Reset ==== */
+body, h1, h3, p, ul, li, a, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Assure que la page occupe toute la hauteur */
+    overflow: hidden; /* Supprime les scrollbars */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #fff;
+}
+
+/* ==== Navbar Styles ==== */
+nav {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)); /* Dégradé de 50% à gauche à 0% à droite */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 5vh; /* Hauteur relative pour ne pas dépasser 100vh */
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    filter: brightness(0) invert(1);
+    width: 35px; /* Ajustez la taille si nécessaire */
+    height: auto;
+    margin: 0 20px 0 20px;
+}
+
+.logo i {
+    font-size: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex: 1; /* Prend l'espace central */
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Barre de recherche */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px; /* Ajoute un espacement entre les éléments */
+    background-color: #fff; /* Fond blanc */
+    padding: 5px 10px; /* Ajoute un espacement autour */
+    border-radius: 50px; /* Bords arrondis */
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 10px 15px; /* Espacement interne */
+    font-size: 14px; /* Taille du texte */
+    border: none; /* Supprime la bordure par défaut */
+    outline: none; /* Supprime le contour au focus */
+    border-radius: 50px; /* Bord arrondi */
+    background-color: transparent; /* Fond transparent */
+    width: 100%; /* Assure que le champ occupe l'espace restant */
+    min-width: 250px; /* Largeur minimale */
+    max-width: 100%;
+    color: #20a09a;
+}
+
+#search-input::placeholder {
+    color: #20a09a; /* Couleur du texte d’indication */
+    font-size: 14px;
+}
+#search-input:focus::placeholder {
+    visibility: hidden;
+  }
+
+.search-bar .search-icon {
+    font-size: 18px; /* Taille de l'icône */
+    color: #20a09a; /* Couleur de l'icône */
+    margin-right: 10px; /* Espacement à droite */
+}
+
+#search-btn, #clear-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #1b8882;
+    color: #fff;
+    border: none;
+    border-radius: 5px; /* Bords arrondis */
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+/* ==== Home Section Styles ==== */
+#home {
+    position: relative;
+    height: 100vh; /* Assure que la section couvre toute la fenêtre */
+    width: 100%;
+    background-image: url('images/background.jpg'); /* Chemin de l'image */
+    background-size: cover; /* L'image couvre toute la zone */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Évite les répétitions */
+    overflow: hidden; /* Supprime tout débordement */
+}
+
+/* Superposition de dégradé */
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(1, 49, 48, 0.9), rgba(0, 0, 0, 0)); /* Dégradé de 50% à gauche à 0% à droite */
+    pointer-events: none; /* Permet de cliquer sur les éléments en dessous */
+    z-index: 1; /* Place la superposition au-dessus de l'image */
+}
+
+#home .intro {
+    position: relative;
+    z-index: 2; /* Place le texte au-dessus du dégradé */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 100%; /* Occupe toute la hauteur de la section */
+    overflow: hidden; /* Masque le débordement */
+}
+
+/* ==== Social Media Icons ==== */
+.social-box {
+    width: 5%;
+    margin: 3.9% 10% 0 0;
+    display: flex;
+    justify-content: center; /* Centre les icônes horizontalement */
+    position: relative;
+    height: 100%; /* Assure que la boîte occupe toute la hauteur */
+    overflow: auto; /* Ajoute le défilement pour le contenu excédentaire */
+}
+
+/* Ligne verticale au-dessus des icônes */
+.social-box::before {
+    content: ''; /* Ajoute un élément vide pour le trait */
+    position: absolute;
+    height: 25%; /* Longueur du trait, ajustez selon vos besoins */
+    width: 1px; /* Épaisseur du trait */
+    margin: 70% 0 0 0;
+    background-color: #fff; /* Couleur du trait */
+    top: 0; /* Place le trait en haut de la boîte */
+    left: 50%; /* Centre le trait horizontalement dans la boîte */
+    transform: translateX(-50%); /* Recentre parfaitement le trait */
+}
+
+/* Liste des icônes des réseaux sociaux */
+.social-media-icons {
+    display: flex;
+    flex-direction: column; /* Organise les icônes verticalement */
+    gap: 10px; /* Espacement entre les icônes */
+    list-style: none;
+    padding: 500% 0 0 0;
+}
+
+.social-media-icons li {
+    margin: 0 0 15px 0;
+    display: inline-block;
+}
+
+.social-media-icons a {
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.social-media-icons a:hover {
+    color: #20a09a; /* Change la couleur au survol */
+}
+
+/* Boîte pour le texte */
+.text-title {
+    flex: 0.91;
+    padding: 200px 20px 0 20px;
+    height: calc(100% - 40px); /* Ajuste la hauteur pour tenir compte du padding */
+    overflow: auto; /* Active le défilement si le contenu dépasse */
+    text-align: left;
+}
+
+.text-title h1 {
+    font-size: 5vw;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #FFF;
+    line-height: 1.2;
+}
+
+.text-title p {
+    width: 60%;
+    font-size: 1.1vw;
+    margin-bottom: 30px;
+}
+
+.text-title button {
+    padding: 10px 20px;
+    font-size: 1.2vw;
+    background-color: #177772;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.text-box {
+    flex: 1;
+    margin-top: 5%;
+    height: 100%;
+    overflow: auto; /* Active le défilement si le contenu dépasse */
+    margin-right: 1%;
+    text-align: left;
+}
+
+.text-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Style pour chaque résultat */
+.result-box {
+    background-color: #FFF;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .failed-result-box {
+    background-color: #FFF;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 10px 0;
+  }
+  
+  /* Image du résultat */
+  .result-image {
+    width: 100%; /* Occupe toute la largeur de la boîte */
+    height: auto; /* Garde les proportions */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    max-height: 215px; /* Limite la hauteur de l'image */
+    object-fit: cover; /* Coupe proprement si l'image dépasse */
+  }
+  
+  /* Titre du résultat */
+  .result-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #191919;
+    margin: 10px 0 0 10px;
+  }
+  
+  /* Description du résultat */
+  .result-description {
+    font-size: 14px;
+    line-height: 1.2;
+    color: #7f7e7e;
+    margin: 0 10px 5px 10px;
+  }
+
+  .result-description-time {
+    font-size: 14px;
+    line-height: 1.2;
+    color: #191919;
+    margin: 0 10px 10px 10px;
+  }
+
+  .failed-result-description {
+    font-size: 14px;
+    line-height: 1.2;
+    color: #7f7e7e;
+    margin: 0 10px 0 10px;
+  }
+  
+  /* Bouton Visit */
+  .result-visit-btn {
+    width: 15%;
+    padding: 10px 20px;
+    margin: 10px 0 10px 10px;
+    font-size: 14px;
+    background-color: #20a09a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+/* ==== No Scroll ==== */
+html {
+    overflow: hidden; /* Supprime la scrollbar verticale */
+}

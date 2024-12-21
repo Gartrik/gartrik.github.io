@@ -1,0 +1,297 @@
+/* ==== General Reset ==== */
+body, h1, p, ul, li, a, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Assure que la page occupe toute la hauteur */
+    overflow: hidden; /* Supprime les scrollbars */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #fff;
+}
+
+/* ==== Navbar Styles ==== */
+nav {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)); /* Dégradé de 50% à gauche à 0% à droite */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 5vh; /* Hauteur relative pour ne pas dépasser 100vh */
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    filter: brightness(0) invert(1);
+    width: 35px; /* Ajustez la taille si nécessaire */
+    height: auto;
+    margin: 0 20px 0 20px;
+}
+
+.logo i {
+    font-size: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex: 1; /* Prend l'espace central */
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Barre de recherche */
+.search-bar {
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px; /* Ajoute un espacement entre les éléments */
+    background-color: #fff; /* Fond blanc */
+    padding: 5px 10px; /* Ajoute un espacement autour */
+    border-radius: 50px; /* Bords arrondis */
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 10px 15px; /* Espacement interne */
+    font-size: 14px; /* Taille du texte */
+    border: none; /* Supprime la bordure par défaut */
+    outline: none; /* Supprime le contour au focus */
+    border-radius: 50px; /* Bord arrondi */
+    background-color: transparent; /* Fond transparent */
+    width: 100%; /* Assure que le champ occupe l'espace restant */
+    min-width: 250px; /* Largeur minimale */
+    max-width: 100%;
+}
+
+#search-input::placeholder {
+    color: #177772; /* Couleur du texte d’indication */
+    font-size: 14px;
+}
+
+.search-bar .search-icon {
+    font-size: 18px; /* Taille de l'icône */
+    color: #177772; /* Couleur de l'icône */
+    margin-right: 10px; /* Espacement à droite */
+}
+
+#search-btn, #clear-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #177772;
+    color: #fff;
+    border: none;
+    border-radius: 10px; /* Bords arrondis */
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+/* ==== Home Section Styles ==== */
+#contact {
+    position: relative;
+    height: 100vh; /* Assure que la section couvre toute la fenêtre */
+    width: 100%;
+    background-image: url('images/background.jpg'); /* Chemin de l'image */
+    background-size: cover; /* L'image couvre toute la zone */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Évite les répétitions */
+    overflow: hidden; /* Supprime tout débordement */
+}
+
+/* Superposition de dégradé */
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(1, 49, 48, 0.9), rgba(0, 0, 0, 0)); /* Dégradé de 50% à gauche à 0% à droite */
+    pointer-events: none; /* Permet de cliquer sur les éléments en dessous */
+    z-index: 1; /* Place la superposition au-dessus de l'image */
+}
+
+#contact .intro {
+    position: relative; /* Position pour superposer correctement les éléments */
+    z-index: 2; /* Place le contenu au-dessus du fond */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    height: 100%; /* La section occupe toute la hauteur */
+    overflow: hidden; /* Empêche les débordements externes */
+}
+
+/* ==== Social Media Icons ==== */
+.social-box {
+    width: 5%;
+    margin: 3.9% 3.3% 0 0;
+    display: flex;
+    justify-content: center; /* Centre les icônes horizontalement */
+    position: relative;
+    height: 100%; /* Assure que la boîte occupe toute la hauteur */
+    overflow: auto; /* Ajoute le défilement pour le contenu excédentaire */
+}
+
+/* Ligne verticale au-dessus des icônes */
+.social-box::before {
+    content: ''; /* Ajoute un élément vide pour le trait */
+    position: absolute;
+    height: 25%; /* Longueur du trait, ajustez selon vos besoins */
+    width: 1px; /* Épaisseur du trait */
+    margin: 70% 0 0 0;
+    background-color: #fff; /* Couleur du trait */
+    top: 0; /* Place le trait en haut de la boîte */
+    left: 50%; /* Centre le trait horizontalement dans la boîte */
+    transform: translateX(-50%); /* Recentre parfaitement le trait */
+}
+
+/* Liste des icônes des réseaux sociaux */
+.social-media-icons {
+    display: flex;
+    flex-direction: column; /* Organise les icônes verticalement */
+    gap: 10px; /* Espacement entre les icônes */
+    list-style: none;
+    padding: 500% 0 0 0;
+}
+
+.social-media-icons li {
+    margin: 0 0 15px 0;
+    display: inline-block;
+}
+
+.social-media-icons a {
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.social-media-icons a:hover {
+    color: #1f9791; /* Change la couleur au survol */
+}
+
+/* Boîte pour le formulaire de contact */
+.contact-title {
+    flex: 0.91;
+    padding: 20% 20px 20px 0;
+    border-radius: 10px;
+    height: 100%;
+    text-align: left;
+}
+
+.contact-title h1 {
+    font-size: 5vw;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.contact-title p {
+    width: 30%;
+    font-size: 1.3vw;
+    margin-bottom: 30px;
+}
+
+.contact-box {
+    flex: 1; /* Supprime la flexibilité pour permettre une position absolue */
+    position: absolute; /* Position absolue par rapport au conteneur parent */
+    top: 30%; /* Distance par rapport au bas */
+    right: 15px;
+    margin: 0 1%; /* Espacement à droite et à gauche */
+    padding: 20px;
+    width: 38.7%;
+    background-color: rgba(0, 0, 0, 0.2); /* Optionnel : Fond semi-transparent */
+    border-radius: 10px;
+    overflow: auto; /* Active le défilement si nécessaire */
+    text-align: left;
+}
+
+.contact-box form {
+    display: flex;
+    flex-direction: column; /* Dispose les champs verticalement */
+    gap: 15px; /* Espacement entre les champs */
+}
+
+.contact-box label {
+    font-size: 14px;
+    color: #fff; /* Texte blanc pour contraster avec le fond */
+}
+
+.contact-box input,
+.contact-box textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background: transparent; /* Fond transparent */
+    color: rgba(255, 255, 255, 0.7); /* Couleur du texte */
+    resize: none; /* Autorise le redimensionnement vertical pour les textarea */
+}
+
+.contact-box input::placeholder,
+.contact-box textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Couleur blanche avec transparence */
+}
+
+.contact-box button {
+    padding: 10px 20px;
+    background-color: #1b8882;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Merci message */
+.thank-you-message {
+    text-align: center;
+    padding: 20px;
+    overflow: auto; /* Active le défilement si nécessaire */
+}
+  
+  .thank-you-message h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #FFF;
+  }
+  
+  .thank-you-message p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #FFF;
+  }
+  
+
+/* ==== No Scroll ==== */
+html {
+    overflow: hidden; /* Supprime la scrollbar verticale */
+}
