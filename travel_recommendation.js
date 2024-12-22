@@ -137,6 +137,7 @@ function displayCountryTime(timeZone) {
 }
 
 // Fonction pour afficher les résultats
+// Fonction pour afficher les résultats
 function displayResults(recommendations) {
   resultsContainer.innerHTML = ''; // Réinitialise les résultats
 
@@ -149,7 +150,8 @@ function displayResults(recommendations) {
     return;
   }
 
-  recommendations.forEach((recommendation) => { // Affiche tous les résultats
+  // Limiter les résultats à 2 maximum
+  recommendations.slice(0, 2).forEach((recommendation) => {
     const currentTime = displayCountryTime(recommendation.timeZone); // Obtient l'heure locale
     resultsContainer.innerHTML += `
       <div class="result-box">
@@ -162,6 +164,7 @@ function displayResults(recommendations) {
     `;
   });
 }
+
 
 // Fonction pour réinitialiser les résultats
 function clearResults() {
